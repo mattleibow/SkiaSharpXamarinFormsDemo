@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SkiaSharpXamarinFormsDemo"
+             xmlns:skiasharp="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             xmlns:ios_uikit="clr-namespace:UIKit;assembly=Xamarin.iOS;targetPlatform=iOS"
+             xmlns:android_widget="clr-namespace:Android.Widget;assembly=Mono.Android;targetPlatform=Android"
+             xmlns:android_graphics="clr-namespace:Android.Graphics;assembly=Mono.Android;targetPlatform=Android"
+             xmlns:android_forms="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.Platform.Android;targetPlatform=Android"
+             xmlns:win_controls="clr-namespace:Windows.UI.Xaml.Controls;assembly=Windows, Version=255.255.255.255, Culture=neutral, PublicKeyToken=null, ContentType=WindowsRuntime;targetPlatform=Windows"
+             xmlns:win_media="clr-namespace:Windows.UI.Xaml.Media;assembly=Windows, Version=255.255.255.255, Culture=neutral, PublicKeyToken=null, ContentType=WindowsRuntime;targetPlatform=Windows"
+             x:Class="SkiaSharpXamarinFormsDemo.MainPage">
+
+    <StackLayout Spacing="12" Padding="12" x:Name="stack">
+
+        <!-- Xamarin.Forms  -->
+        <Label Text="Hello World! (Xamarin.Forms)" HorizontalOptions="FillAndExpand" FontSize="40" FontFamily="Arial" LineBreakMode="NoWrap" />
+
+        <!-- SkiaSharp  -->
+        <skiasharp:SKCanvasView PaintSurface="OnPaintSurface" HorizontalOptions="FillAndExpand" HeightRequest="40" />
+
+        <!-- iOS  -->
+        <ios_uikit:UILabel Text="Hello World! (iOS UIKit)" View.HorizontalOptions="Start" LineBreakMode="Clip">
+            <ios_uikit:UILabel.Font>
+                <ios_uikit:UIFont x:FactoryMethod="FromName">
+                    <x:Arguments>
+                        <x:String>Arial</x:String>
+                        <x:Single>40</x:Single>
+                    </x:Arguments>
+                </ios_uikit:UIFont>
+            </ios_uikit:UILabel.Font>
+        </ios_uikit:UILabel>
+
+        <!-- Android  -->
+        <android_widget:TextView Text="Hello World! (Android Widget)" x:Arguments="{x:Static android_forms:Forms.Context}" TextSize="40">
+            <android_widget:TextView.Typeface>
+                <android_graphics:Typeface x:FactoryMethod="Create">
+                    <x:Arguments>
+                        <x:String>Arial</x:String>
+                        <android_graphics:TypefaceStyle>Normal</android_graphics:TypefaceStyle>
+                    </x:Arguments>
+                </android_graphics:Typeface>
+            </android_widget:TextView.Typeface>
+        </android_widget:TextView>
+
+        <!-- UWP  -->
+        <win_controls:TextBlock Text="Hello World! (Windows XAML Control)" FontSize="40" TextWrapping="NoWrap">
+            <win_controls:TextBlock.FontFamily>
+                <win_media:FontFamily>
+                    <x:Arguments>
+                        <x:String>Arial</x:String>
+                    </x:Arguments>
+                </win_media:FontFamily>
+            </win_controls:TextBlock.FontFamily>
+        </win_controls:TextBlock>
+
+    </StackLayout>
+
+</ContentPage>
